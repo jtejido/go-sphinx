@@ -1,0 +1,52 @@
+# (DO NOT MOVE THIS). Serves as a copy for the server.
+title 					= "Default Config File"
+
+[log]
+level 					= "info"
+
+[properties]
+absolute_beam_width = 20000
+relative_beam_width = 1e-60
+absolute_word_beam_width = 200
+relative_word_beam_width = 1e-40
+word_insertion_probability = 0.1
+silence_insertion_probability = 0.1
+filler_insertion_probability = 1e-2
+phonetic_lookahead_window = 5
+phonetic_lookahead_weight = 6
+acoustic_lookahead_weight = 1.7
+phonetic_beam = 1e-12
+oog_probability = 1e-30
+oog_loop_probability = 1e-10
+language_weight = 8.0
+
+[decoder]
+search_manager = "word_pruning_lookahead"
+
+[word_pruning_lookahead]
+linguist = "lex_tree"
+fast_match_linguist = "all_phone"
+loader = "acoustic_model"
+pruner = "simple"
+scorer = "simple"
+active_list_manager = "simple_active_list_manager"
+grow_skip_interval = 0
+build_word_lattice = true
+keep_all_tokens = true
+look_ahead_window = 5
+lookahead_penalty_weight = 6
+acoustic_lookahead_frames = 1.7
+relative_beam_width = 1e-60
+
+[word_pruning]
+linguist = "lex_tree"
+pruner = "simple"
+scorer = "simple"
+active_list_manager = "simple_active_list_manager"
+grow_skip_interval = 0
+build_word_lattice = true
+keep_all_tokens = true
+acoustic_lookahead_frames = 1.7
+relative_beam_width = 1e-60
+
+[simple_active_list_manager]
